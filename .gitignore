@@ -1,24 +1,33 @@
-# Compiled class file
-*.class
 
-# Log file
-*.log
+public class reporteVenta {
 
-# BlueJ files
-*.ctxt
+    public static void main(String[] args) {
+  String[] nombres = {"Producto A", "Producto B", "Producto C"};
+        String[] categorias = {"Bebidas", "Comidas", "Snacks"};
+        int[][] ventas = {
+            {100, 150, 200}, 
+            {120, 180, 220}, 
+            {130, 190, 210} 
+        };
+      
+        generarReporteAscii(nombres, categorias, ventas);
+    }
 
-# Mobile Tools for Java (J2ME)
-.mtj.tmp/
+    public static void generarReporteAscii(String[] nombres, String[] categorias, int[][] ventas) {
+        System.out.println("REPORTE DE VENTAS");
+        System.out.println("=".repeat(50));
+        System.out.printf("%-15s%-15s%-10s%-15s%-10s\n", "Producto", "Categoría", "Ene", "Feb", "Mar");
+        System.out.println("-".repeat(50));
 
-# Package Files #
-*.jar
-*.war
-*.nar
-*.ear
-*.zip
-*.tar.gz
-*.rar
+        for (int i = 0; i < nombres.length; i++) {
+            System.out.printf("%-15s%-15s%-10d%-10d%-10d\n", 
+                              nombres[i], 
+                              categorias[i], 
+                              ventas[i][0], 
+                              ventas[i][1], 
+                              ventas[i][2]);
+        }
 
-# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
-hs_err_pid*
-replay_pid*
+        System.out.println("=".repeat(50));
+    }
+}
